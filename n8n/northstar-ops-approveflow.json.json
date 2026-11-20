@@ -1,0 +1,513 @@
+{
+  "name": "Human-in-the-Loop Lead Reply System (NorthStar Ops)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "Human-in-the-Loop Lead Reply System (NorthStar Ops)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.2,
+      "position": [
+        -112,
+        0
+      ],
+      "id": "9832d79e-2e95-4a6e-b334-af7945ba4d1e",
+      "name": "Webhook",
+      "webhookId": "ec2f895a-c10b-4a28-ba45-fb255f339f88"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "705e2261-ee18-4b11-8bc6-688d24b985bb",
+              "name": "prospect_name",
+              "value": "={{ $json.body.prospect_name }}",
+              "type": "string"
+            },
+            {
+              "id": "d788f4bc-bce6-4d50-bbc9-1b0788622174",
+              "name": "prospect_email",
+              "value": "={{ $json.body.prospect_email }}",
+              "type": "string"
+            },
+            {
+              "id": "4de37adf-9058-425a-a7ba-4a56b1650bb3",
+              "name": "prospect_role",
+              "value": "={{ $json.body.prospect_role }}",
+              "type": "string"
+            },
+            {
+              "id": "209e6cb4-2738-4596-914b-13a9d0a98c02",
+              "name": "company_name",
+              "value": "={{ $json.body.company_name }}",
+              "type": "string"
+            },
+            {
+              "id": "db0c324a-f2c1-4e46-8aa6-da660cd8662c",
+              "name": "company_domain",
+              "value": "={{ $json.body.company_domain }}",
+              "type": "string"
+            },
+            {
+              "id": "68671a12-a6ed-4939-a0b1-04c0b79e493a",
+              "name": "company_size",
+              "value": "={{ $json.body.company_size }}",
+              "type": "string"
+            },
+            {
+              "id": "616bc04c-6f45-4af6-a0f6-b6477545720a",
+              "name": "industry",
+              "value": "={{ $json.body.industry }}",
+              "type": "string"
+            },
+            {
+              "id": "903cc6ee-45d3-4c33-b2cd-10248b0d0e14",
+              "name": "monthly_ad_spend",
+              "value": "={{ $json.body.monthly_ad_spend }}",
+              "type": "string"
+            },
+            {
+              "id": "7f4d9c32-5bb1-4653-bcc2-dd5fd8f5b6ca",
+              "name": "inbound_message",
+              "value": "={{ $json.body.inbound_message }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        112,
+        0
+      ],
+      "id": "9ce6dc77-13f9-4b7e-8a1a-3510a17c2a7a",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1JHRIBPJprx1s_WhB1FME1Wd-oDqpPbURshstG3MaiNs",
+          "mode": "list",
+          "cachedResultName": "Lead (NorthStar Ops)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1JHRIBPJprx1s_WhB1FME1Wd-oDqpPbURshstG3MaiNs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1JHRIBPJprx1s_WhB1FME1Wd-oDqpPbURshstG3MaiNs/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Prospect Name": "={{ $json.prospect_name }}",
+            "Prospect Email": "={{ $json.prospect_email }}",
+            "Prospect Role": "={{ $json.prospect_role }}",
+            "Company Name": "={{ $json.company_name }}",
+            "Company Domain": "={{ $json.company_domain }}",
+            "Company Size": "={{ $json.company_size }}",
+            "Industry": "={{ $json.industry }}",
+            "Monthly Ad Spend": "={{ $json.monthly_ad_spend }}",
+            "Inbound Message": "={{ $json.inbound_message }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Prospect Name",
+              "displayName": "Prospect Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Prospect Email",
+              "displayName": "Prospect Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Prospect Role",
+              "displayName": "Prospect Role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company Name",
+              "displayName": "Company Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company Domain",
+              "displayName": "Company Domain",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company Size",
+              "displayName": "Company Size",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Industry",
+              "displayName": "Industry",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Monthly Ad Spend",
+              "displayName": "Monthly Ad Spend",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Inbound Message",
+              "displayName": "Inbound Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        400,
+        0
+      ],
+      "id": "9e1b5dd2-426e-45c4-beac-bc793428d0d0",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "iJwPL3LzpIuhW7aU",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Analyze this inbound B2B inquiry and return the structured qualification and draft reply:\n\nProspect Name: {{ $('Edit Fields').item.json.prospect_name }}\nRole: {{ $('Edit Fields').item.json.prospect_role }}\nCompany: {{ $('Edit Fields').item.json.company_name }} ({{ $('Edit Fields').item.json.company_domain }})\nIndustry: {{ $('Edit Fields').item.json.industry }} | Size: {{ $('Edit Fields').item.json.company_size }} | Ad Spend: {{ $('Edit Fields').item.json.monthly_ad_spend }}\nMessage: {{ $('Edit Fields').item.json.inbound_message }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "You are an outbound B2B growth strategist at NorthStar Growth Partners (retainers start at $6,500/mo). Score the prospect's ICP fit (70-99), match the best B2B SaaS case study with concrete metrics, write a 2-sentence account summary, and draft a personalized 3-paragraph reply proposing a 15-minute audit call.\n\nFormatting rules for ai_draft_reply (MUST follow strictly):\n- Keep the total email between 90 and 130 words (concise, scannable B2B style).\n- Put the greeting on its own line followed by a blank line (\"Hi {{first_name}},\\n\\n\").\n- Use short 1–2 sentence paragraphs separated by blank lines (\\n\\n).\n- Format the 3 value points as separate bullet lines starting with \"- \" instead of inline \"(1) ... (2) ... (3) ...\".\n- End with a short 1-sentence CTA and a clean sign-off on separate lines:\n  \"Best,\\nAlex Rivera\\nFounder, NorthStar Growth Partners\""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        752,
+        0
+      ],
+      "id": "3f56d690-85e5-4d00-b0ea-88ce7ea7d5d4",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        688,
+        176
+      ],
+      "id": "4eb6ebce-262f-4752-8a80-0c915223e536",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": null,
+          "name": "",
+          "__aiGatewayManaged": true
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"icp_score\": 92,\n  \"matched_case_study\": \"CargoFlow Technologies: Cut cost-per-qualified-demo by 44% and added $480k pipeline in 90 days.\",\n  \"enrichment_notes\": \"Series A B2B SaaS team spending $30k/mo on paid acquisition with strong fit for our $6,500/mo Growth Retainer.\",\n  \"ai_draft_reply\": \"Hi Nur,\\n\\nThanks for reaching out...\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1024,
+        160
+      ],
+      "id": "1b429ad4-033e-486e-a346-123528ef8fe7",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://percentage-building-exit-chairman.trycloudflare.com/api/leads/ingest",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"prospect_name\": \"{{ $('Edit Fields').item.json.prospect_name }}\",\n  \"prospect_email\": \"{{ $('Edit Fields').item.json.prospect_email }}\",\n  \"prospect_role\": \"{{ $('Edit Fields').item.json.prospect_role }}\",\n  \"company_name\": \"{{ $('Edit Fields').item.json.company_name }}\",\n  \"company_domain\": \"{{ $('Edit Fields').item.json.company_domain }}\",\n  \"company_size\": \"{{ $('Edit Fields').item.json.company_size }}\",\n  \"industry\": \"{{ $('Edit Fields').item.json.industry }}\",\n  \"monthly_ad_spend\": \"{{ $('Edit Fields').item.json.monthly_ad_spend }}\",\n  \"inbound_message\": \"{{ $('Edit Fields').item.json.inbound_message }}\",\n  \"icp_score\": {{ $json.output.icp_score }},\n  \"matched_case_study\": {{ JSON.stringify($json.output.matched_case_study) }},\n  \"enrichment_notes\": {{ JSON.stringify($json.output.enrichment_notes) }},\n  \"ai_draft_reply\": {{ JSON.stringify($json.output.ai_draft_reply) }}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        1296,
+        0
+      ],
+      "id": "9a2c1256-2b61-4d23-96c2-7bbb1017f227",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "northstar-approve-send",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.2,
+      "position": [
+        16,
+        480
+      ],
+      "id": "36565322-1ff8-4c9b-ae38-648d726cd5ab",
+      "name": "Webhook1",
+      "webhookId": "e165d31b-7cbb-47ef-b442-f64e7f6fb32f"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.body.to_email }}",
+        "subject": "={{ $json.body.subject || $json.body.final_subject || \"Re: Your Inquiry (\" + $json.body.ticket_number + \")\" }}",
+        "emailType": "text",
+        "message": "={{ $json.body.body || $json.body.final_reply_body || $json.body.reply_body }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        304,
+        480
+      ],
+      "id": "e22947fc-751b-40d4-8912-d703a3b43763",
+      "name": "Send a message",
+      "webhookId": "b201fa23-e2b4-4013-b6fa-745030a02730",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "I0RtLCJAAtnvcbGQ",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## 1. Inbound Lead Webhook\n",
+        "height": 304,
+        "width": 448
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -192,
+        -96
+      ],
+      "typeVersion": 1,
+      "id": "f8a98e2c-73af-49fd-8504-9813435071a4",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Backup Raw Lead (Sheets)",
+        "height": 304,
+        "width": 336,
+        "color": "#1B601A"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        272,
+        -96
+      ],
+      "typeVersion": 1,
+      "id": "7f43dcfc-9755-47d8-9c52-d0056ffbf046",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## AI ICP Score & Reply Drafter",
+        "height": 416,
+        "width": 528,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        624,
+        -128
+      ],
+      "typeVersion": 1,
+      "id": "fc451275-be7d-4d61-9734-66d4453cb3d1",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Queue in NorthStar DB",
+        "height": 288,
+        "width": 352
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1184,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "19ef3372-6e67-45d7-97ad-ca8aeeecb471",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Send Verified Email (Gmail) ",
+        "height": 336,
+        "width": 768
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -176,
+        368
+      ],
+      "typeVersion": 1,
+      "id": "039b2ecf-ec1b-4c9e-a23d-02537a789cea",
+      "name": "Sticky Note4"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "31279258-2afd-4f86-8bca-4ad1e958b450",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "c0a16bbef1451cac87f5c37063ba5a81fbb599d5db3c0084bdbeb58d1cdd2b05"
+  },
+  "nodeGroups": [],
+  "id": "BQjImiXJYWBYw35Z",
+  "tags": []
+}
